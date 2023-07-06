@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RegisterAndLogin from "./login";
+import HomeScreen from "./home"; 
+import ForgotPassword from "./forgotPass";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function PasswordLoginWithFirebase(){
+    return(
+        <BrowserRouter>
+            <div>
+                <Routes>
+                    <Route path="/" element={<RegisterAndLogin/>} />
+                    <Route path="/home" element={<HomeScreen/>} />
+                    <Route path="/reset" element={<ForgotPassword/>} />
+                </Routes>
+            </div>
+        </BrowserRouter>
+    )
 }
-
-export default App;
+export default PasswordLoginWithFirebase;
