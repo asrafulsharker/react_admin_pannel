@@ -41,8 +41,9 @@ function RegisterAndLogin() {
     history("/reset");
   }
   return (
-    <div className="App">
+    <div className="App form_main">
       {/* Registration and login Screen */}
+      <div className="loginn">
       <div className="row">
         <div
           className={login == false ? "activeColor" : "pointer"}
@@ -57,16 +58,20 @@ function RegisterAndLogin() {
           SignIn
         </div>
       </div>
+      <div className="form">
       <h1>{login ? "SignIn" : "SignUp"}</h1>
       <form onSubmit={(e) => handleSubmit(e, login ? "signin" : "signup")}>
         <input name="email" placeholder="Email" />
         <br />
-        <input name="password" type="text" placeholder="Password" />
+        <input name="password" type="password" placeholder="Password" />
         <br />
-        <p onClick={handleReset}>Forgot Password?</p>
+        <p className="forgot_link" onClick={handleReset}>Forgot Password?</p>
         <br />
-        <button>{login ? "SignIn" : "SignUp"}</button>
+        <button className="log_reg_btn">{login ? "SignIn" : "SignUp"}</button>
       </form>
+      </div>
+      </div>
+      
     </div>
   );
 }
